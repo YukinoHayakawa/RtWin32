@@ -15,7 +15,7 @@ class Win32WindowManager;
 
 // todo: move win32 to extension
 class Win32Runtime
-    : Singleton<Win32Runtime>
+    : public Singleton<Win32Runtime>
     , public Runtime
 {
     std::unique_ptr<VulkanGpuDevice> mGpu;

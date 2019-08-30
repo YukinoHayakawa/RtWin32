@@ -7,12 +7,11 @@
 #pragma warning(pop)
 
 #include <Usagi/Core/Logging.hpp>
-#include <Usagi/Extension/Vulkan/VulkanGpuDevice.hpp>
-#include <Usagi/Extension/Win32/Input/Win32InputManager.hpp>
-#include <Usagi/Extension/Win32/Win32Helper.hpp>
-#include <Usagi/Extension/Win32/Window/Win32WindowManager.hpp>
 #include <Usagi/Utility/Unicode.hpp>
-// todo fix circular dependency
+#include <Usagi/Extensions/RtVulkan/VulkanGpuDevice.hpp>
+#include <Usagi/Extensions/RtWin32/Input/Win32InputManager.hpp>
+#include <Usagi/Extensions/RtWin32/Win32Helper.hpp>
+#include <Usagi/Extensions/RtWin32/Window/Win32WindowManager.hpp>
 #include <Usagi/Extensions/RtPortAudio/PortAudioAudioManager.hpp>
 
 std::shared_ptr<usagi::Runtime> usagi::Runtime::create()

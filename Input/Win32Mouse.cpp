@@ -1,8 +1,8 @@
 ﻿#include "Win32Mouse.hpp"
 
 #include <Usagi/Runtime/Input/Mouse/MouseEventListener.hpp>
-#include <Usagi/Extension/Win32/Window/Win32WindowManager.hpp>
-#include <Usagi/Extension/Win32/Window/Win32Window.hpp>
+#include <Usagi/Extensions/RtWin32/Window/Win32WindowManager.hpp>
+#include <Usagi/Extensions/RtWin32/Window/Win32Window.hpp>
 
 // Microsoft forgot to define it for Windows 8.1
 #ifndef RI_MOUSE_HWHEEL

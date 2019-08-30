@@ -10,7 +10,7 @@
 namespace usagi
 {
 class Win32WindowManager
-    : Singleton<Win32WindowManager>
+    : public Singleton<Win32WindowManager>
     , public WindowManager
 {
     friend class Win32Window;

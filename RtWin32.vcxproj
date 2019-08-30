@@ -91,6 +91,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Usagi\Usagi\Usagi.vcxproj">
+      <Project>{4250e1c0-ea0b-4575-bc04-11e7f83c2ed4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RtPortAudio\RtPortAudio.vcxproj">
+      <Project>{4dc05a4c-7bb0-4346-a1f4-c9e1bca86800}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Input\Win32Gamepad.cpp" />
+    <ClCompile Include="Input\Win32InputManager.cpp" />
+    <ClCompile Include="Input\Win32Keyboard.cpp" />
+    <ClCompile Include="Input\Win32Mouse.cpp" />
+    <ClCompile Include="Input\Win32RawInputDevice.cpp" />
+    <ClCompile Include="Win32Helper.cpp" />
+    <ClCompile Include="Win32Runtime.cpp" />
+    <ClCompile Include="Window\Win32Window.cpp" />
+    <ClCompile Include="Window\Win32WindowManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Input\Win32Gamepad.hpp" />
+    <ClInclude Include="Input\Win32InputManager.hpp" />
+    <ClInclude Include="Input\Win32Keyboard.hpp" />
+    <ClInclude Include="Input\Win32Mouse.hpp" />
+    <ClInclude Include="Input\Win32RawInputDevice.hpp" />
+    <ClInclude Include="ntos.h" />
+    <ClInclude Include="Win32.hpp" />
+    <ClInclude Include="Win32Helper.hpp" />
+    <ClInclude Include="Win32MacroFix.hpp" />
+    <ClInclude Include="Win32Runtime.hpp" />
+    <ClInclude Include="Window\Win32Window.hpp" />
+    <ClInclude Include="Window\Win32WindowManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
