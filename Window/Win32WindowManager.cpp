@@ -26,6 +26,7 @@ void usagi::Win32WindowManager::registerWindowClass()
     // we print the background using graphics API like Vulkan/OpenGL/DirectX
     wcex.hbrBackground = nullptr;
     wcex.lpszClassName = WINDOW_CLASS_NAME;
+    wcex.hIconSm = LoadIconW(wcex.hInstance, IDI_APPLICATION);
 
     if(!RegisterClassExW(&wcex))
     {
