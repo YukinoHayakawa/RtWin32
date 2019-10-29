@@ -414,21 +414,46 @@ LRESULT usagi::Win32Window::handleWindowMessage(HWND hWnd, UINT message,
                 LOWORD(lParam) < 0 ? 0 : LOWORD(lParam),
                 HIWORD(lParam) < 0 ? 0 : HIWORD(lParam)
             };
-            if(mSize == e.size) break;
-            mSize = e.size;
             e.sequence = mResizing;
-            forEachListener([&](auto h) {
-                if(!e.sequence)
+            switch(wParam)
+            {
+                // minimize & restore events might be used to pause the
+                // rendering
+                case SIZE_MINIMIZED:
                 {
-                    h->onWindowResizeBegin(e);
-                    h->onWindowResized(e);
-                    h->onWindowResizeEnd(e);
+                    forEachListener([&](auto h) {
+                        h->onWindowMinimized(e);
+                    });
+                    break;
                 }
-                else
+
+                case SIZE_RESTORED:
                 {
-                    h->onWindowResized(e);
+                    forEachListener([&](auto h) {
+                        h->onWindowRestored(e);
+                    });
+                    // in case the size is also changed
+                    [[fallthrough]];
                 }
-            });
+
+                default:
+                {
+                    if(mSize == e.size) break;
+                    mSize = e.size;
+                    forEachListener([&](auto h) {
+                        if(!e.sequence)
+                        {
+                            h->onWindowResizeBegin(e);
+                            h->onWindowResized(e);
+                            h->onWindowResizeEnd(e);
+                        }
+                        else
+                        {
+                            h->onWindowResized(e);
+                        }
+                    });
+                }
+            }
             break;
         }
         case WM_MOVE:
