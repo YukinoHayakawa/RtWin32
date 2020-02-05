@@ -13,9 +13,14 @@ namespace virtual_memory
 {
 std::size_t page_size()
 {
-    SYSTEM_INFO sys_info;
-    GetSystemInfo(&sys_info);
-    return sys_info.dwPageSize;
+    static std::size_t size = 0;
+    if(size == 0)
+    {
+        SYSTEM_INFO sys_info;
+        GetSystemInfo(&sys_info);
+        size = sys_info.dwPageSize;
+    }
+    return size;
 }
 
 std::size_t round_up_to_page_size(const std::size_t size_bytes)
