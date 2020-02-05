@@ -6,13 +6,7 @@
 #include <Usagi/Utility/Unicode.hpp>
 #include <Usagi/Utility/RawResource.hpp>
 
-#pragma warning(disable: 4005) // macro redefinition
-
 #include "Win32.hpp"
-#define DEVICE_TYPE DWORD
-typedef _Return_type_success_(return >= 0) LONG NTSTATUS;
-typedef NTSTATUS *PNTSTATUS;
-#include "ntos.h"
 
 // https://docs.microsoft.com/en-us/windows/desktop/Debug/retrieving-the-last-error-code
 std::string usagi::win32::getErrorMessage(const DWORD error_code)
