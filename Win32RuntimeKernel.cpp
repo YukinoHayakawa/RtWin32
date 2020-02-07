@@ -90,7 +90,7 @@ void free(void *ptr, std::size_t size_bytes)
         GetCurrentProcess(),
         &ptr,
         &size_bytes,
-        MEM_FREE
+        MEM_RELEASE
     );
 
     if(!NT_SUCCESS(status))
